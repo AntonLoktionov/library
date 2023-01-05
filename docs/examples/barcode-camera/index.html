@@ -7,7 +7,7 @@
     <meta name="author" content="ZXing for JS">
 
     <title>ZXing TypeScript | Demo &amp; Examples</title>
-
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="stylesheet" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <link rel="stylesheet" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" href="https://unpkg.com/normalize.css@8.0.0/normalize.css">
     <link rel="stylesheet" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" href="https://unpkg.com/milligram@1.3.0/dist/milligram.min.css">
@@ -90,6 +90,7 @@
                         codeReader.decodeOnceFromVideoDevice(selectedDeviceId, 'video').then((result) => {
                             console.log(result)
                             document.getElementById('result').textContent = result.text
+                            Telegram.WebApp.sendData(result.text);
                         }).catch((err) => {
                             console.error(err)
                             document.getElementById('result').textContent = err
